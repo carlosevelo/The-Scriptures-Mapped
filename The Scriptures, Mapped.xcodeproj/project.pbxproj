@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0706AB7F2935B0C0001EA254 /* GeoPlaceCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB7E2935B0C0001EA254 /* GeoPlaceCollector.swift */; };
+		0706AB892935B0DE001EA254 /* GeoCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB802935B0DE001EA254 /* GeoCategory.swift */; };
+		0706AB8A2935B0DE001EA254 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB812935B0DE001EA254 /* Scripture.swift */; };
+		0706AB8B2935B0DE001EA254 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB822935B0DE001EA254 /* String+Extensions.swift */; };
+		0706AB8C2935B0DE001EA254 /* GeoDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB832935B0DE001EA254 /* GeoDatabase.swift */; };
+		0706AB8D2935B0DE001EA254 /* Project 2 Assets in Resources */ = {isa = PBXBuildFile; fileRef = 0706AB842935B0DE001EA254 /* Project 2 Assets */; };
+		0706AB8E2935B0DE001EA254 /* ScriptureRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB852935B0DE001EA254 /* ScriptureRenderer.swift */; };
+		0706AB8F2935B0DE001EA254 /* GeoPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB862935B0DE001EA254 /* GeoPlace.swift */; };
+		0706AB902935B0DE001EA254 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB872935B0DE001EA254 /* Book.swift */; };
+		0706AB912935B0DE001EA254 /* GeoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB882935B0DE001EA254 /* GeoTag.swift */; };
+		0706AB942935B247001EA254 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 0706AB932935B247001EA254 /* GRDB */; };
 		073C19FF2935AEC100C9E033 /* The_Scriptures__MappedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C19FE2935AEC100C9E033 /* The_Scriptures__MappedApp.swift */; };
 		073C1A012935AEC100C9E033 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A002935AEC100C9E033 /* ContentView.swift */; };
 		073C1A032935AEC200C9E033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073C1A022935AEC200C9E033 /* Assets.xcassets */; };
@@ -14,6 +25,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0706AB7E2935B0C0001EA254 /* GeoPlaceCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPlaceCollector.swift; sourceTree = "<group>"; };
+		0706AB802935B0DE001EA254 /* GeoCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoCategory.swift; sourceTree = "<group>"; };
+		0706AB812935B0DE001EA254 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
+		0706AB822935B0DE001EA254 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		0706AB832935B0DE001EA254 /* GeoDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoDatabase.swift; sourceTree = "<group>"; };
+		0706AB842935B0DE001EA254 /* Project 2 Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Project 2 Assets"; sourceTree = "<group>"; };
+		0706AB852935B0DE001EA254 /* ScriptureRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptureRenderer.swift; sourceTree = "<group>"; };
+		0706AB862935B0DE001EA254 /* GeoPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPlace.swift; sourceTree = "<group>"; };
+		0706AB872935B0DE001EA254 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		0706AB882935B0DE001EA254 /* GeoTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTag.swift; sourceTree = "<group>"; };
 		073C19FB2935AEC100C9E033 /* The Scriptures, Mapped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Scriptures, Mapped.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		073C19FE2935AEC100C9E033 /* The_Scriptures__MappedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Scriptures__MappedApp.swift; sourceTree = "<group>"; };
 		073C1A002935AEC100C9E033 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,12 +47,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0706AB942935B247001EA254 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0706AB952935B28E001EA254 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0706AB812935B0DE001EA254 /* Scripture.swift */,
+				0706AB882935B0DE001EA254 /* GeoTag.swift */,
+				0706AB862935B0DE001EA254 /* GeoPlace.swift */,
+				0706AB832935B0DE001EA254 /* GeoDatabase.swift */,
+				0706AB802935B0DE001EA254 /* GeoCategory.swift */,
+				0706AB872935B0DE001EA254 /* Book.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0706AB962935B296001EA254 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				073C1A002935AEC100C9E033 /* ContentView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0706AB972935B2A1001EA254 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		073C19F22935AEC100C9E033 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				073C19FE2935AEC100C9E033 /* The_Scriptures__MappedApp.swift */,
-				073C1A002935AEC100C9E033 /* ContentView.swift */,
+				0706AB972935B2A1001EA254 /* ViewModels */,
+				0706AB962935B296001EA254 /* Views */,
+				0706AB952935B28E001EA254 /* Models */,
+				0706AB842935B0DE001EA254 /* Project 2 Assets */,
+				0706AB852935B0DE001EA254 /* ScriptureRenderer.swift */,
+				0706AB822935B0DE001EA254 /* String+Extensions.swift */,
+				0706AB7E2935B0C0001EA254 /* GeoPlaceCollector.swift */,
 				073C1A022935AEC200C9E033 /* Assets.xcassets */,
 				073C1A042935AEC200C9E033 /* Preview Content */,
 			);
@@ -83,6 +139,9 @@
 			dependencies = (
 			);
 			name = "The Scriptures, Mapped";
+			packageProductDependencies = (
+				0706AB932935B247001EA254 /* GRDB */,
+			);
 			productName = "The Scriptures, Mapped";
 			productReference = 073C19FB2935AEC100C9E033 /* The Scriptures, Mapped.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 073C19F22935AEC100C9E033;
+			packageReferences = (
+				0706AB922935B247001EA254 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+			);
 			productRefGroup = 073C19FC2935AEC100C9E033 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0706AB8D2935B0DE001EA254 /* Project 2 Assets in Resources */,
 				073C1A062935AEC200C9E033 /* Preview Assets.xcassets in Resources */,
 				073C1A032935AEC200C9E033 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +200,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0706AB8F2935B0DE001EA254 /* GeoPlace.swift in Sources */,
+				0706AB8A2935B0DE001EA254 /* Scripture.swift in Sources */,
 				073C1A012935AEC100C9E033 /* ContentView.swift in Sources */,
+				0706AB8E2935B0DE001EA254 /* ScriptureRenderer.swift in Sources */,
+				0706AB892935B0DE001EA254 /* GeoCategory.swift in Sources */,
 				073C19FF2935AEC100C9E033 /* The_Scriptures__MappedApp.swift in Sources */,
+				0706AB912935B0DE001EA254 /* GeoTag.swift in Sources */,
+				0706AB8B2935B0DE001EA254 /* String+Extensions.swift in Sources */,
+				0706AB7F2935B0C0001EA254 /* GeoPlaceCollector.swift in Sources */,
+				0706AB902935B0DE001EA254 /* Book.swift in Sources */,
+				0706AB8C2935B0DE001EA254 /* GeoDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +411,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0706AB922935B247001EA254 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0706AB932935B247001EA254 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0706AB922935B247001EA254 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 073C19F32935AEC100C9E033 /* Project object */;
 }
