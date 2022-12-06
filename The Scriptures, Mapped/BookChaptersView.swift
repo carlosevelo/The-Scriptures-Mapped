@@ -11,8 +11,14 @@ struct BookChaptersView: View {
     var bookId: Int
     
     var body: some View {
-        ZStack {
-            Rectangle().foregroundColor(.purple).opacity(0.5)
+        List {
+            NavigationLink(value: "chapter 1"){
+                Text("Chapter 1")
+                //ChapterContentView(bookId: bookId, chapter: bookId)
+            }
+//            NavigationLink("Show Chapter") {
+//                WebView(request: WebViewLoadRequest.htmlText(html: "<b>Hello</b> World"))
+//            }
         }
         .navigationTitle("Genesis")
     }

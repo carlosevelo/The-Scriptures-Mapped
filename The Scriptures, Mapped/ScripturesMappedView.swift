@@ -48,7 +48,7 @@ struct ScripturesMappedView: View {
             case "book":
                 return AnyView(BookChaptersView(bookId: numbers[0]))
             case "chapter":
-                return AnyView(ChapterContentView(bookId: numbers[0], chapter: numbers[1]))
+                return AnyView(ChapterContentView(presentedViews: $presentedViews, bookId: numbers[0], chapter: numbers[1]))
             case "map":
                 return AnyView(MapView(text: "Test"))
             default:

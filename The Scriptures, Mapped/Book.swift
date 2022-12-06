@@ -36,7 +36,7 @@ struct Book : TableRecord, FetchableRecord {
     var id: Int             // Surrogate ID (1, 2, 3, 4, 5, 101, 102, ...)
     var abbr: String        // Internal abbrevation (gen, ex)
     var citeAbbr: String    // Abbreviation suitable for use in citation (Gen., Ex.)
-    var fullName: String    // Full name of the boox
+    var fullName: String    // Full name of the book
     var numChapters: Int?   // Number of chapters in this book
     var parentBookId: Int?  // ID of parent book (null for volumes)
     var webTitle: String    // Title suitable for displaying in web page
