@@ -17,16 +17,19 @@
 		0706AB902935B0DE001EA254 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB872935B0DE001EA254 /* Book.swift */; };
 		0706AB912935B0DE001EA254 /* GeoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB882935B0DE001EA254 /* GeoTag.swift */; };
 		0706AB942935B247001EA254 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 0706AB932935B247001EA254 /* GRDB */; };
-		0706AB9C29365FA1001EA254 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB9B29365FA1001EA254 /* BooksView.swift */; };
+		0706AB9C29365FA1001EA254 /* VolumeBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB9B29365FA1001EA254 /* VolumeBooksView.swift */; };
 		0706AB9E29366161001EA254 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706AB9D29366161001EA254 /* MapView.swift */; };
 		0706ABA0293663EE001EA254 /* geo.21.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0706AB9F293663EE001EA254 /* geo.21.sqlite */; };
 		0706ABA2293663F3001EA254 /* geocode.js in Resources */ = {isa = PBXBuildFile; fileRef = 0706ABA1293663F2001EA254 /* geocode.js */; };
 		0706ABA62936644D001EA254 /* scripture.css in Resources */ = {isa = PBXBuildFile; fileRef = 0706ABA52936644D001EA254 /* scripture.css */; };
 		0706ABA82936B7D2001EA254 /* ScripturesMappedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706ABA72936B7D2001EA254 /* ScripturesMappedView.swift */; };
 		0706ABAA2936B8A5001EA254 /* VolumesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706ABA92936B8A5001EA254 /* VolumesView.swift */; };
+		0706ABAC2936C1B2001EA254 /* BookChaptersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706ABAB2936C1B2001EA254 /* BookChaptersView.swift */; };
+		0706ABAF2936C27D001EA254 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706ABAE2936C27D001EA254 /* WebView.swift */; };
 		073C19FF2935AEC100C9E033 /* The_Scriptures__MappedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C19FE2935AEC100C9E033 /* The_Scriptures__MappedApp.swift */; };
 		073C1A032935AEC200C9E033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073C1A022935AEC200C9E033 /* Assets.xcassets */; };
 		073C1A062935AEC200C9E033 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073C1A052935AEC200C9E033 /* Preview Assets.xcassets */; };
+		073C8E9B293EC03D00265E96 /* ChapterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C8E9A293EC03D00265E96 /* ChapterContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,17 +42,20 @@
 		0706AB862935B0DE001EA254 /* GeoPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPlace.swift; sourceTree = "<group>"; };
 		0706AB872935B0DE001EA254 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		0706AB882935B0DE001EA254 /* GeoTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTag.swift; sourceTree = "<group>"; };
-		0706AB9B29365FA1001EA254 /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
+		0706AB9B29365FA1001EA254 /* VolumeBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeBooksView.swift; sourceTree = "<group>"; };
 		0706AB9D29366161001EA254 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0706AB9F293663EE001EA254 /* geo.21.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = geo.21.sqlite; sourceTree = "<group>"; };
 		0706ABA1293663F2001EA254 /* geocode.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = geocode.js; sourceTree = "<group>"; };
 		0706ABA52936644D001EA254 /* scripture.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = scripture.css; sourceTree = "<group>"; };
 		0706ABA72936B7D2001EA254 /* ScripturesMappedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScripturesMappedView.swift; sourceTree = "<group>"; };
 		0706ABA92936B8A5001EA254 /* VolumesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumesView.swift; sourceTree = "<group>"; };
+		0706ABAB2936C1B2001EA254 /* BookChaptersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookChaptersView.swift; sourceTree = "<group>"; };
+		0706ABAE2936C27D001EA254 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		073C19FB2935AEC100C9E033 /* The Scriptures, Mapped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Scriptures, Mapped.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		073C19FE2935AEC100C9E033 /* The_Scriptures__MappedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Scriptures__MappedApp.swift; sourceTree = "<group>"; };
 		073C1A022935AEC200C9E033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		073C1A052935AEC200C9E033 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		073C8E9A293EC03D00265E96 /* ChapterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +82,14 @@
 		0706AB962935B296001EA254 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0706ABAD2936C24A001EA254 /* Components */,
 				0706AB9929365AF7001EA254 /* App */,
-				0706AB9B29365FA1001EA254 /* BooksView.swift */,
+				0706AB9B29365FA1001EA254 /* VolumeBooksView.swift */,
 				0706AB9D29366161001EA254 /* MapView.swift */,
 				0706ABA72936B7D2001EA254 /* ScripturesMappedView.swift */,
 				0706ABA92936B8A5001EA254 /* VolumesView.swift */,
+				0706ABAB2936C1B2001EA254 /* BookChaptersView.swift */,
+				073C8E9A293EC03D00265E96 /* ChapterContentView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -123,6 +132,14 @@
 				0706ABA52936644D001EA254 /* scripture.css */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		0706ABAD2936C24A001EA254 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0706ABAE2936C27D001EA254 /* WebView.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 		073C19F22935AEC100C9E033 = {
@@ -242,19 +259,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0706AB8F2935B0DE001EA254 /* GeoPlace.swift in Sources */,
+				0706ABAF2936C27D001EA254 /* WebView.swift in Sources */,
 				0706ABA82936B7D2001EA254 /* ScripturesMappedView.swift in Sources */,
 				0706AB8A2935B0DE001EA254 /* Scripture.swift in Sources */,
 				0706AB8E2935B0DE001EA254 /* ScriptureRenderer.swift in Sources */,
 				0706AB9E29366161001EA254 /* MapView.swift in Sources */,
+				073C8E9B293EC03D00265E96 /* ChapterContentView.swift in Sources */,
 				0706AB892935B0DE001EA254 /* GeoCategory.swift in Sources */,
 				073C19FF2935AEC100C9E033 /* The_Scriptures__MappedApp.swift in Sources */,
 				0706AB912935B0DE001EA254 /* GeoTag.swift in Sources */,
 				0706ABAA2936B8A5001EA254 /* VolumesView.swift in Sources */,
-				0706AB9C29365FA1001EA254 /* BooksView.swift in Sources */,
+				0706AB9C29365FA1001EA254 /* VolumeBooksView.swift in Sources */,
 				0706AB8B2935B0DE001EA254 /* String+Extensions.swift in Sources */,
 				0706AB7F2935B0C0001EA254 /* GeoPlaceCollector.swift in Sources */,
 				0706AB902935B0DE001EA254 /* Book.swift in Sources */,
 				0706AB8C2935B0DE001EA254 /* GeoDatabase.swift in Sources */,
+				0706ABAC2936C1B2001EA254 /* BookChaptersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
