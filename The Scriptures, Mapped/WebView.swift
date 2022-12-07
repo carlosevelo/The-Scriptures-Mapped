@@ -15,9 +15,10 @@ enum WebViewLoadRequest {
 
 struct WebView: UIViewRepresentable {
     let request: WebViewLoadRequest
+    let navigateToGeoPlace: (Int) -> Void
 
     func makeCoordinator() -> Coordinator {
-        Coordinator()
+        Coordinator(navigateToGeoPlace)
     }
 
     func makeUIView(context: Context) -> WKWebView {
@@ -38,6 +39,12 @@ struct WebView: UIViewRepresentable {
     }
 
     class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
+        let navigateToGeoPlace: (Int) -> Void
+        
+        init(_ navigateToGeoPlace: @escaping (Int) -> Void) {
+            self.navigateToGeoPlace = navigateToGeoPlace
+        }
+        
         func webView(
             _ webView: WKWebView,
             decidePolicyFor navigationAction: WKNavigationAction,
@@ -46,11 +53,14 @@ struct WebView: UIViewRepresentable {
             if navigationAction.navigationType == .linkActivated  {
                 if let url = navigationAction.request.url {
 
-                    // NEEDSWORK: check for https://scriptures.byu.edu/mapscrip/<GeoPlaceID>
-                    if UIApplication.shared.canOpenURL(url) {
+                    if url.absoluteString.contains("https://scriptures.byu.edu/mapscrip/") {
 
-                        // NEEDSWORK: override the click action here
-                        print("User clicked on \(navigationAction.request.url?.absoluteString ?? "I don't know")")
+                        let geoPlaceIdStr = url.absoluteString.substring(fromOffset: 36)
+                        let geoPlaceId: Int = Int(geoPlaceIdStr) ?? 0
+
+                        DispatchQueue.main.async {
+                            self.navigateToGeoPlace(geoPlaceId)
+                        }
 
                         decisionHandler(.cancel)
                     } else {
@@ -64,11 +74,12 @@ struct WebView: UIViewRepresentable {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-//        let request = URLRequest(url: URL(string: "https://hundredpushups.com")!)
-//
-//        WebView(request: WebViewLoadRequest.urlRequest(request: request))
-        WebView(request: WebViewLoadRequest.htmlText(html: ScriptureRenderer.shared.htmlForBookId(101, chapter: 2)))
-    }
-}
+//struct SwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        let request = URLRequest(url: URL(string: "https://hundredpushups.com")!)
+////
+////        WebView(request: WebViewLoadRequest.urlRequest(request: request))
+//              
+//        WebView(request: WebViewLoadRequest.htmlText(html: ScriptureRenderer.shared.htmlForBookId(101, chapter: 2)), navigateToGeoPlace: navigateToGeoPlace)
+//    }
+//}

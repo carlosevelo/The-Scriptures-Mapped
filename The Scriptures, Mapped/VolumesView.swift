@@ -11,9 +11,7 @@ struct VolumesView: View {
     var body: some View {
         List {
             ForEach(GeoDatabase.shared.volumes(), id: \.self) { volume in
-                NavigationLink(value: "volume \(volume.id)") {
-                    Text(volume.fullName)
-                }
+                NavigationLink(volume.fullName, value: "volume \(volume.id)")
                 .isDetailLink(false)
             }
         }

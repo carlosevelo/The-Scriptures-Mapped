@@ -13,9 +13,7 @@ struct VolumeBooksView: View {
     var body: some View {
         List {
             ForEach(GeoDatabase.shared.booksForParentId(volumeId), id: \.self) { book in
-                NavigationLink(value: "book \(book.id)") {
-                    Text(book.fullName)
-                }
+                NavigationLink(book.fullName, value: "book \(book.id)")
                 .isDetailLink(false)
             }
         }

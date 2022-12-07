@@ -21,9 +21,7 @@ struct BookChaptersView: View {
             }
             else {
                 ForEach(1...numChapters, id: \.self) { chapterNum in
-                    NavigationLink(value: "chapter \(bookId) \(chapterNum)") {
-                        Text("\(chapterNum)")
-                    }
+                    NavigationLink("\(chapterNum)", value: "chapter \(bookId) \(chapterNum)")
                     .isDetailLink(false)
                 }
             }
