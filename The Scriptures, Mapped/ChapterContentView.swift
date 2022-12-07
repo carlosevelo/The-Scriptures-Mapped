@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ChapterContentView: View {
+    @EnvironmentObject var viewModel: ViewModel
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    var presentedViews: Binding<Array<String>>
+    
+    @State private var displayedGeoplaces: [GeoPlace] = []
+    
     var bookId: Int
     var chapter: Int
     
@@ -22,10 +25,14 @@ struct ChapterContentView: View {
         .toolbar {
             ToolbarItem {
                 Button {
+                    let scripture: [Scripture] = GeoDatabase.shared.versesForScriptureBookId(bookId, chapter)
+                    let geoPlaceAndTag: [(GeoPlace, GeoTag)] = GeoDatabase.shared.geoTagsForScriptureId(scripture[0].id)
+
                     if horizontalSizeClass == .compact {
-                        presentedViews.wrappedValue.append("map")
+                        viewModel.displayedGeoplaces = [geoPlaceAndTag[0].0]
+                        viewModel.presentedViews.append("map")
                     } else {
-                        // Ignore -- it's already visible
+                        viewModel.displayedGeoplaces = [geoPlaceAndTag[0].0]
                     }
                 } label: {
                     Image(systemName: horizontalSizeClass == .compact ? "map" : "gobackward" )
@@ -36,9 +43,9 @@ struct ChapterContentView: View {
     }
 }
 
-//
-//struct ChapterContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ChapterContentView(presentedViews: $presentedViewsPreView, bookId: 1, chapter: 1 )
-//    }
-//}
+
+struct ChapterContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChapterContentView(bookId: 1, chapter: 1 )
+    }
+}

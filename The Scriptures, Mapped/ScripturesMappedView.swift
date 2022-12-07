@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScripturesMappedView: View {
+    @EnvironmentObject var viewModel: ViewModel
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var presentedViews: [String] = []
     
@@ -18,13 +19,13 @@ struct ScripturesMappedView: View {
             HStack(spacing: 0) {
                 volumesView
                     .frame(width: 400)
-                MapView(text: "Test")
+                MapView()
             }
         }
     }
     
     private var volumesView: some View {
-        NavigationStack(path: $presentedViews) {
+        NavigationStack(path: $viewModel.presentedViews) {
             VolumesView()
                 .navigationDestination(for: String.self, destination: navigationDestination(for:))
                 .navigationTitle("The Scriptures Mapped")
@@ -48,9 +49,9 @@ struct ScripturesMappedView: View {
             case "book":
                 return AnyView(BookChaptersView(bookId: numbers[0]))
             case "chapter":
-                return AnyView(ChapterContentView(presentedViews: $presentedViews, bookId: numbers[0], chapter: numbers[1]))
+                return AnyView(ChapterContentView(bookId: numbers[0], chapter: numbers[1]))
             case "map":
-                return AnyView(MapView(text: "Test"))
+                return AnyView(MapView())
             default:
                 break
             }

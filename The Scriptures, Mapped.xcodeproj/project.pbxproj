@@ -30,6 +30,9 @@
 		073C1A032935AEC200C9E033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073C1A022935AEC200C9E033 /* Assets.xcassets */; };
 		073C1A062935AEC200C9E033 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073C1A052935AEC200C9E033 /* Preview Assets.xcassets */; };
 		073C8E9B293EC03D00265E96 /* ChapterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C8E9A293EC03D00265E96 /* ChapterContentView.swift */; };
+		073C8E9D2940254100265E96 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C8E9C2940254100265E96 /* CustomMapView.swift */; };
+		073C8E9F294025F600265E96 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C8E9E294025F600265E96 /* CustomAnnotationView.swift */; };
+		073C8EA12940361700265E96 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C8EA02940361700265E96 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		073C1A022935AEC200C9E033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		073C1A052935AEC200C9E033 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		073C8E9A293EC03D00265E96 /* ChapterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterContentView.swift; sourceTree = "<group>"; };
+		073C8E9C2940254100265E96 /* CustomMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
+		073C8E9E294025F600265E96 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		073C8EA02940361700265E96 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +90,14 @@
 			children = (
 				0706ABAD2936C24A001EA254 /* Components */,
 				0706AB9929365AF7001EA254 /* App */,
-				0706AB9B29365FA1001EA254 /* VolumeBooksView.swift */,
-				0706AB9D29366161001EA254 /* MapView.swift */,
-				0706ABA72936B7D2001EA254 /* ScripturesMappedView.swift */,
-				0706ABA92936B8A5001EA254 /* VolumesView.swift */,
 				0706ABAB2936C1B2001EA254 /* BookChaptersView.swift */,
 				073C8E9A293EC03D00265E96 /* ChapterContentView.swift */,
+				073C8E9E294025F600265E96 /* CustomAnnotationView.swift */,
+				073C8E9C2940254100265E96 /* CustomMapView.swift */,
+				0706AB9D29366161001EA254 /* MapView.swift */,
+				0706ABA72936B7D2001EA254 /* ScripturesMappedView.swift */,
+				0706AB9B29365FA1001EA254 /* VolumeBooksView.swift */,
+				0706ABA92936B8A5001EA254 /* VolumesView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -100,6 +108,7 @@
 				0706AB852935B0DE001EA254 /* ScriptureRenderer.swift */,
 				0706AB7E2935B0C0001EA254 /* GeoPlaceCollector.swift */,
 				0706AB822935B0DE001EA254 /* String+Extensions.swift */,
+				073C8EA02940361700265E96 /* ViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -264,8 +273,11 @@
 				0706AB8A2935B0DE001EA254 /* Scripture.swift in Sources */,
 				0706AB8E2935B0DE001EA254 /* ScriptureRenderer.swift in Sources */,
 				0706AB9E29366161001EA254 /* MapView.swift in Sources */,
+				073C8E9D2940254100265E96 /* CustomMapView.swift in Sources */,
 				073C8E9B293EC03D00265E96 /* ChapterContentView.swift in Sources */,
 				0706AB892935B0DE001EA254 /* GeoCategory.swift in Sources */,
+				073C8E9F294025F600265E96 /* CustomAnnotationView.swift in Sources */,
+				073C8EA12940361700265E96 /* ViewModel.swift in Sources */,
 				073C19FF2935AEC100C9E033 /* The_Scriptures__MappedApp.swift in Sources */,
 				0706AB912935B0DE001EA254 /* GeoTag.swift in Sources */,
 				0706ABAA2936B8A5001EA254 /* VolumesView.swift in Sources */,

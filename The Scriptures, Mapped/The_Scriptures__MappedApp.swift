@@ -11,7 +11,7 @@ import SwiftUI
 struct The_Scriptures__MappedApp: App {
     var body: some Scene {
         WindowGroup {
-            ScripturesMappedView()
+            ScripturesMappedView().environmentObject(ViewModel())
         }
     }
 }
