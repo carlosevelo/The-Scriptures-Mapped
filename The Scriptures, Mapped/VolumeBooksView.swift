@@ -12,17 +12,14 @@ struct VolumeBooksView: View {
     
     var body: some View {
         List {
-            NavigationLink(value: "book 123") {
-                Text("Genesis")
+            ForEach(GeoDatabase.shared.booksForParentId(volumeId), id: \.self) { book in
+                NavigationLink(value: "book \(book.id)") {
+                    Text(book.fullName)
+                }
+                .isDetailLink(false)
             }
-//            NavigationLink(GeoDatabase.shared.bookForId(volumeId).fullName) {
-//                BookChaptersView(bookId: volumeId)
-//            }
-//            NavigationLink("Show Chapter") {
-//                WebView(request: WebViewLoadRequest.htmlText(html: "<b>Hello</b> World"))
-//            }
         }
-        .navigationTitle("Old Testament")
+        .navigationTitle(GeoDatabase.shared.bookForId(volumeId).fullName)
     }
 }
 

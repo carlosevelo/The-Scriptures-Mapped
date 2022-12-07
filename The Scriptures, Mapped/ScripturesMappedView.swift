@@ -10,7 +10,7 @@ import SwiftUI
 struct ScripturesMappedView: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var presentedViews: [String] = []
+    //@State private var presentedViews: [String] = []
     
     var body: some View {
         if horizontalSizeClass == .compact {
@@ -63,6 +63,6 @@ struct ScripturesMappedView: View {
 
 struct ScripturesMappedView_Previews: PreviewProvider {
     static var previews: some View {
-        ScripturesMappedView()
+        ScripturesMappedView().environmentObject(ViewModel())
     }
 }

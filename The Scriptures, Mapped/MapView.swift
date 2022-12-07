@@ -11,14 +11,14 @@ import MapKit
 struct MapView: View {
     @EnvironmentObject var viewModel: ViewModel
 
-//    @State private var region = MKCoordinateRegion(
-//        center: CLLocationCoordinate2D(latitude: 35, longitude: 36),
-//        span: MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
-//    )
+    @State private var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 35, longitude: 36),
+        span: MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
+    )
 
     var body: some View {
         CustomMapView(
-            coordinateRegion: $viewModel.region,
+            coordinateRegion: $region,
             annotationItems: viewModel.displayedGeoplaces
         )
         .edgesIgnoringSafeArea([.horizontal, .bottom])
@@ -29,6 +29,6 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        MapView().environmentObject(ViewModel())
     }
 }

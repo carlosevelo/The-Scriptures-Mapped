@@ -9,7 +9,13 @@ import Foundation
 import MapKit
 
 class ViewModel: ObservableObject {
-    @Published var displayedGeoplaces: [GeoPlace] = []
+    @Published var displayedGeoplaces: [GeoPlace] = [
+        GeoDatabase.shared.geoPlaceForId(66)!,
+        GeoDatabase.shared.geoPlaceForId(166)!,
+        GeoDatabase.shared.geoPlaceForId(266)!,
+        GeoDatabase.shared.geoPlaceForId(366)!,
+        GeoDatabase.shared.geoPlaceForId(1266)!
+    ]
     
     var presentedViews: [String] = []
     

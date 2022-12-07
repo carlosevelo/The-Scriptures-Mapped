@@ -179,9 +179,29 @@ class GeoDatabase {
     //
     // Return an array of strings listing the titles of all scripture volumes.
     //
-    func volumes() -> [String] {
+    func volumes() -> [Book] {
+        do {
+            let volumes = try dbQueue.inDatabase { (db: Database) -> [Book] in
+                var volumes = [Book]()
+                
+                for row in try Row.fetchAll(db,
+                                            sql: """
+                                                 select * from \(Book.databaseTableName) \
+                                                 where \(Book.Table .parentBookId) is null \
+                                                 order by \(Book.Table .id)
+                                                 """) {
+                    volumes.append(Book(row: row))
+                }
+
+                return volumes
+            }
+
+            return volumes
+        } catch {
+            return []
+        }
         // NEEDSWORK: get this from the database -- don't hard-code anything
-        return ["Old Testament", "New Testament", "Book of Mormon",
-                "Doctrine and Covenants", "Pearl of Great Price"]
+//        return ["Old Testament", "New Testament", "Book of Mormon",
+//                "Doctrine and Covenants", "Pearl of Great Price"]
     }
 }

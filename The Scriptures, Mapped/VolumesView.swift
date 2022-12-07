@@ -10,13 +10,12 @@ import SwiftUI
 struct VolumesView: View {
     var body: some View {
         List {
-            NavigationLink(value: "volume 1") {
-                Text("Old Testament")
+            ForEach(GeoDatabase.shared.volumes(), id: \.self) { volume in
+                NavigationLink(value: "volume \(volume.id)") {
+                    Text(volume.fullName)
+                }
+                .isDetailLink(false)
             }
-//            ForEach(GeoDatabase.shared.volumes(), id: \.self) { volumeName in
-//
-//                .isDetailLink(false)
-//            }
         }
     }
 }

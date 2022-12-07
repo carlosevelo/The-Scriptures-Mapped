@@ -12,20 +12,28 @@ struct BookChaptersView: View {
     
     var body: some View {
         List {
-            NavigationLink(value: "chapter 1"){
-                Text("Chapter 1")
-                //ChapterContentView(bookId: bookId, chapter: bookId)
+            let numChapters = GeoDatabase.shared.bookForId(bookId).numChapters ?? 0
+            if numChapters == 0 {
+                
             }
-//            NavigationLink("Show Chapter") {
-//                WebView(request: WebViewLoadRequest.htmlText(html: "<b>Hello</b> World"))
-//            }
+            else if numChapters == 1 {
+                
+            }
+            else {
+                ForEach(1...numChapters, id: \.self) { chapterNum in
+                    NavigationLink(value: "chapter \(bookId) \(chapterNum)") {
+                        Text("\(chapterNum)")
+                    }
+                    .isDetailLink(false)
+                }
+            }
         }
-        .navigationTitle("Genesis")
+        .navigationTitle(GeoDatabase.shared.bookForId(bookId).fullName)
     }
 }
 
 struct ChaptersView_Previews: PreviewProvider {
     static var previews: some View {
-        BookChaptersView(bookId: 1)
+        BookChaptersView(bookId: 101)
     }
 }
