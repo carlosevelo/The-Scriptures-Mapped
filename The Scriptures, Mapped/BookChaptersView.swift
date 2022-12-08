@@ -16,10 +16,12 @@ struct BookChaptersView: View {
         List {
             let numChapters = GeoDatabase.shared.bookForId(bookId).numChapters ?? 0
             if numChapters == 0 {
-                
+//                NavigationLink("\(chapterNum)", value: "chapter \(bookId) \(chapterNum)")
+//                .isDetailLink(false)
             }
             else if numChapters == 1 {
-                
+//                NavigationLink("\(chapterNum)", value: "chapter \(bookId) \(chapterNum)")
+//                .isDetailLink(false)
             }
             else {
                 ForEach(1...numChapters, id: \.self) { chapterNum in
