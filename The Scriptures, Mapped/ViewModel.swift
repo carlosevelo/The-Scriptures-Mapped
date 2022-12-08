@@ -77,13 +77,12 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
         }
         
         let center = CLLocationCoordinate2D(
-            latitude: minLat + abs(maxLat - minLat) / 2,
-            longitude: minLong + abs(maxLong - minLong) / 2)
+            latitude: displayedGeoplaces.count > 1 ? (minLat + abs(maxLat - minLat)) / 2 : minLat,
+            longitude: displayedGeoplaces.count > 1 ? (minLong + abs(maxLong - minLong)) / 2 : minLong)
         
         let span = MKCoordinateSpan(
-            latitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLat - minLat) * 1.2 : maxLat * 0.02,
-            longitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLong - minLong) * 1.2 : maxLong * 0.02)
-        
+            latitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLat - minLat) * 1.2 : 0.4,
+            longitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLong - minLong) * 1.2 : 0.4)
         return MKCoordinateRegion(center: center, span: span)
     }
     

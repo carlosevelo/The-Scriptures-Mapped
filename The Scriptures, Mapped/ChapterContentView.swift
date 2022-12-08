@@ -32,14 +32,16 @@ struct ChapterContentView: View {
         }
         .navigationTitle(GeoDatabase.shared.bookForId(bookId).fullName)
         .toolbar {
-            ToolbarItem {
-                Button {
-                    if horizontalSizeClass == .compact {
-                        viewModel.presentedViews.append("map")
+            if !viewModel.displayedGeoplaces.isEmpty {
+                ToolbarItem {
+                    Button {
+                        if horizontalSizeClass == .compact {
+                            viewModel.presentedViews.append("map")
+                        }
+                        viewModel.resetMapView()
+                    } label: {
+                        Image(systemName: horizontalSizeClass == .compact ? "map" : "gobackward" )
                     }
-                    viewModel.resetMapView()
-                } label: {
-                    Image(systemName: horizontalSizeClass == .compact ? "map" : "gobackward" )
                 }
             }
         }

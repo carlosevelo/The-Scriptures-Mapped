@@ -25,8 +25,6 @@ struct VolumeBooksView: View {
                             .isDetailLink(false)
                     }
                 }
-//                NavigationLink(book.fullName, value: "book \(book.id)")
-//                .isDetailLink(false)
             }
         }
         .navigationTitle(GeoDatabase.shared.bookForId(volumeId).fullName)
