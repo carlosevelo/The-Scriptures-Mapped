@@ -26,7 +26,8 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
     // MARK: - User Intents
     func clearMapView() {
         displayedGeoplaces = []
-        lastGeocodedPlaces = []
+        coordinateRegion = Map.defaultRegion
+        //lastGeocodedPlaces = []
         //focusedGeoPlaceId = nil
     }
     func focusOnGeoPlace(geoPlaceId: Int) {
@@ -45,13 +46,13 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
         
     }
     func resetMapView() {
-        focusedGeoPlaceId = nil
+        self.coordinateRegion = self.coordinateRegionForGeoPlaces
     }
     
     // MARK: - Computed Properties
     
-    private func coordinateRegionForGeoPlaces(geoPlaces: [GeoPlace]) {
-        if geoPlaces.isEmpty {
+    private var coordinateRegionForGeoPlaces: MKCoordinateRegion {
+        if displayedGeoplaces.isEmpty {
             coordinateRegion = Map.defaultRegion
         }
         
@@ -60,7 +61,7 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
         var maxLong: Double = -180
         var minLong: Double = 180
         
-        for geoPlace in geoPlaces {
+        for geoPlace in displayedGeoplaces {
             if geoPlace.latitude > maxLat {
                 maxLat = geoPlace.latitude
             }
@@ -80,26 +81,10 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
             longitude: minLong + abs(maxLong - minLong) / 2)
         
         let span = MKCoordinateSpan(
-            latitudeDelta: abs(maxLat - minLat) * 1.05,
-            longitudeDelta: abs(maxLong - minLong) * 1.05)
+            latitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLat - minLat) * 1.2 : maxLat * 0.02,
+            longitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLong - minLong) * 1.2 : maxLong * 0.02)
         
-        coordinateRegion = MKCoordinateRegion(center: center, span: span)
-    }
-    
-    // MARK: Helpers
-    
-    public func setGeoPlacesForChapter(bookId: Int, chapter: Int) {
-        let scriptureList: [Scripture] = GeoDatabase.shared.versesForScriptureBookId(bookId, chapter)
-        
-        var geoPlaceList: [GeoPlace] = []
-        var geoTags: [(GeoPlace, GeoTag)] = []
-        for scripture in scriptureList {
-            geoTags = GeoDatabase.shared.geoTagsForScriptureId(scripture.id)
-            for geo in geoTags {
-                geoPlaceList.append(geo.0)
-            }
-        }
-        setGeocodedPlaces(geoPlaceList)
+        return MKCoordinateRegion(center: center, span: span)
     }
     
     // MARK: - GeoPlaceCollector
@@ -125,8 +110,7 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
         
         DispatchQueue.main.async {
             self.displayedGeoplaces = self.lastGeocodedPlaces
-            self.coordinateRegionForGeoPlaces(geoPlaces: self.lastGeocodedPlaces)
-            //self.coordinateRegion = self.coordinateRegionForGeoPlaces
+            self.coordinateRegion = self.coordinateRegionForGeoPlaces
         }
     }
     

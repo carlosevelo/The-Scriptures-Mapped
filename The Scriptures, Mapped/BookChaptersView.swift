@@ -29,9 +29,6 @@ struct BookChaptersView: View {
             }
         }
         .navigationTitle(GeoDatabase.shared.bookForId(bookId).fullName)
-        .onAppear {
-            viewModel.resetMapView()
-        }
     }
         
 }

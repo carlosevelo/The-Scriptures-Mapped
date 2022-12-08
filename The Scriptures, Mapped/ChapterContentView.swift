@@ -24,24 +24,20 @@ struct ChapterContentView: View {
                     viewModel.presentedViews.append("map")
                 }
             }
-            .onAppear {
-                viewModel.resetMapView()
+            .onDisappear {
+                if horizontalSizeClass != .compact {
+                    viewModel.clearMapView()
+                }
             }
-//            .onDisappear {
-//                viewModel.clearMapView()
-//            }
         }
         .navigationTitle(GeoDatabase.shared.bookForId(bookId).fullName)
         .toolbar {
             ToolbarItem {
                 Button {
-                    viewModel.setGeoPlacesForChapter(bookId: bookId, chapter: chapter)
-                    
                     if horizontalSizeClass == .compact {
                         viewModel.presentedViews.append("map")
-                    } else {
-                        //Nothing
                     }
+                    viewModel.resetMapView()
                 } label: {
                     Image(systemName: horizontalSizeClass == .compact ? "map" : "gobackward" )
                 }
