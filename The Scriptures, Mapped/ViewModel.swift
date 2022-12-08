@@ -14,6 +14,7 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
     @Published var focusedGeoPlaceId: Int?
     @Published var displayedGeoplaces: [GeoPlace] = []
     @Published var coordinateRegion = Map.defaultRegion
+    @Published var mapViewTitle = "Map"
     
     @Published var presentedViews: [String] = []
     
@@ -27,8 +28,8 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
     func clearMapView() {
         displayedGeoplaces = []
         coordinateRegion = Map.defaultRegion
-        //lastGeocodedPlaces = []
-        //focusedGeoPlaceId = nil
+        lastGeocodedPlaces = []
+        mapViewTitle = "Map"
     }
     func focusOnGeoPlace(geoPlaceId: Int) {
         focusedGeoPlaceId = geoPlaceId
@@ -42,11 +43,16 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
                 span: MKCoordinateSpan(
                     latitudeDelta: latLonDelta,
                     longitudeDelta: latLonDelta))
+            
+            mapViewTitle = geoPlace.placename
         }
         
     }
     func resetMapView() {
         self.coordinateRegion = self.coordinateRegionForGeoPlaces
+    }
+    func setMapViewTitle(title: String) {
+        mapViewTitle = title
     }
     
     // MARK: - Computed Properties
@@ -61,28 +67,20 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
         var maxLong: Double = -180
         var minLong: Double = 180
         
-        for geoPlace in displayedGeoplaces {
-            if geoPlace.latitude > maxLat {
-                maxLat = geoPlace.latitude
-            }
-            if geoPlace.latitude < minLat {
-                minLat = geoPlace.latitude
-            }
-            if geoPlace.longitude > maxLong {
-                maxLong = geoPlace.longitude
-            }
-            if geoPlace.longitude < minLong {
-                minLong = geoPlace.longitude
-            }
+        displayedGeoplaces.forEach { geoPlace in
+            minLat = minLat > geoPlace.latitude ? geoPlace.latitude : minLat
+            maxLat = maxLat < geoPlace.latitude ? geoPlace.latitude : maxLat
+            minLong = minLong > geoPlace.longitude ? geoPlace.longitude : minLong
+            maxLong = maxLong < geoPlace.longitude ? geoPlace.longitude : maxLong
         }
         
         let center = CLLocationCoordinate2D(
-            latitude: displayedGeoplaces.count > 1 ? (minLat + abs(maxLat - minLat)) / 2 : minLat,
-            longitude: displayedGeoplaces.count > 1 ? (minLong + abs(maxLong - minLong)) / 2 : minLong)
+            latitude: displayedGeoplaces.count > 1 ? (minLat + maxLat) / 2 : minLat,
+            longitude: displayedGeoplaces.count > 1 ? (minLong + maxLong) / 2 : minLong)
         
         let span = MKCoordinateSpan(
-            latitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLat - minLat) * 1.2 : 0.4,
-            longitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLong - minLong) * 1.2 : 0.4)
+            latitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLat - minLat) * 1.3 : 0.4,
+            longitudeDelta: displayedGeoplaces.count > 1 ? abs(maxLong - minLong) * 1.3 : 0.4)
         return MKCoordinateRegion(center: center, span: span)
     }
     

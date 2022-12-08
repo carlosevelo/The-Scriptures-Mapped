@@ -24,13 +24,16 @@ struct ChapterContentView: View {
                     viewModel.presentedViews.append("map")
                 }
             }
+            .onAppear {
+                viewModel.setMapViewTitle(title: GeoDatabase.shared.bookForId(bookId).fullName)
+            }
             .onDisappear {
                 if horizontalSizeClass != .compact {
                     viewModel.clearMapView()
                 }
             }
         }
-        .navigationTitle(GeoDatabase.shared.bookForId(bookId).fullName)
+        //.navigationTitle(GeoDatabase.shared.bookForId(bookId).fullName)
         .toolbar {
             if !viewModel.displayedGeoplaces.isEmpty {
                 ToolbarItem {

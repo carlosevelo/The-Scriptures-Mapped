@@ -16,9 +16,9 @@ struct MapView: View {
             coordinateRegion: $viewModel.coordinateRegion,
             annotationItems: viewModel.displayedGeoplaces
         )
-        .edgesIgnoringSafeArea([.horizontal, .bottom])
+        .edgesIgnoringSafeArea([.horizontal, .bottom, .top])
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Map")
+        .navigationTitle(viewModel.mapViewTitle)
     }
 }
 
