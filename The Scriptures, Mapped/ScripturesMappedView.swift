@@ -33,10 +33,7 @@ struct ScripturesMappedView: View {
     }
     
     private func navigationDestination(for path: String) -> AnyView {
-        // volume ID
-        // book ID
-        // chapther bookID chapterNo
-        // map
+        print("presentedViews:\n    \(viewModel.presentedViews.joined(separator: "\n    "))")
         
         let parts = path.split(separator: " ")
         

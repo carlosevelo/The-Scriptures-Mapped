@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BookChaptersView: View {
+    @EnvironmentObject var viewModel: ViewModel
+
     var bookId: Int
     
     var body: some View {
@@ -27,7 +29,11 @@ struct BookChaptersView: View {
             }
         }
         .navigationTitle(GeoDatabase.shared.bookForId(bookId).fullName)
+        .onAppear {
+            viewModel.resetMapView()
+        }
     }
+        
 }
 
 struct ChaptersView_Previews: PreviewProvider {

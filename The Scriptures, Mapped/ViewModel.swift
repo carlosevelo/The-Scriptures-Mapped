@@ -26,6 +26,8 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
     // MARK: - User Intents
     func clearMapView() {
         displayedGeoplaces = []
+        lastGeocodedPlaces = []
+        //focusedGeoPlaceId = nil
     }
     func focusOnGeoPlace(geoPlaceId: Int) {
         focusedGeoPlaceId = geoPlaceId
@@ -48,9 +50,9 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
     
     // MARK: - Computed Properties
     
-    private var coordinateRegionForGeoPlaces: MKCoordinateRegion {
-        if displayedGeoplaces.isEmpty {
-            return Map.defaultRegion
+    private func coordinateRegionForGeoPlaces(geoPlaces: [GeoPlace]) {
+        if geoPlaces.isEmpty {
+            coordinateRegion = Map.defaultRegion
         }
         
         var maxLat: Double = -90
@@ -58,17 +60,17 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
         var maxLong: Double = -180
         var minLong: Double = 180
         
-        for geoPlace in displayedGeoplaces {
+        for geoPlace in geoPlaces {
             if geoPlace.latitude > maxLat {
                 maxLat = geoPlace.latitude
             }
-            else if geoPlace.latitude < minLat {
+            if geoPlace.latitude < minLat {
                 minLat = geoPlace.latitude
             }
             if geoPlace.longitude > maxLong {
                 maxLong = geoPlace.longitude
             }
-            else if geoPlace.longitude < minLong {
+            if geoPlace.longitude < minLong {
                 minLong = geoPlace.longitude
             }
         }
@@ -81,7 +83,7 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
             latitudeDelta: abs(maxLat - minLat) * 1.05,
             longitudeDelta: abs(maxLong - minLong) * 1.05)
         
-        return MKCoordinateRegion(center: center, span: span)
+        coordinateRegion = MKCoordinateRegion(center: center, span: span)
     }
     
     // MARK: Helpers
@@ -104,27 +106,27 @@ class ViewModel: ObservableObject, GeoPlaceCollector {
     
     private var lastGeocodedPlaces: [GeoPlace] = []
     func setGeocodedPlaces(_ places: [GeoPlace]?) {
-        
         var singlePlaces: [GeoPlace] = []
-        for place in lastGeocodedPlaces {
-            if place.latitude ==
-        }
+        places?.forEach({ place in
+            if !singlePlaces.contains(where: {$0.placename == place.placename}) {
+                singlePlaces.append(place)
+            }
+        })
         
-        if places == nil && lastGeocodedPlaces.isEmpty {
+        if singlePlaces.isEmpty && lastGeocodedPlaces.isEmpty {
             return
         }
         
-        if let places {
-            if places == lastGeocodedPlaces {
-                return
-            } else {
-                lastGeocodedPlaces = places
-            }
+        if singlePlaces == lastGeocodedPlaces {
+            return
+        } else {
+            lastGeocodedPlaces = singlePlaces
         }
         
         DispatchQueue.main.async {
             self.displayedGeoplaces = self.lastGeocodedPlaces
-            self.coordinateRegion = self.coordinateRegionForGeoPlaces
+            self.coordinateRegionForGeoPlaces(geoPlaces: self.lastGeocodedPlaces)
+            //self.coordinateRegion = self.coordinateRegionForGeoPlaces
         }
     }
     

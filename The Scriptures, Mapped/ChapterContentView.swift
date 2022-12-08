@@ -27,9 +27,9 @@ struct ChapterContentView: View {
             .onAppear {
                 viewModel.resetMapView()
             }
-            .onDisappear {
-                viewModel.clearMapView()
-            }
+//            .onDisappear {
+//                viewModel.clearMapView()
+//            }
         }
         .navigationTitle(GeoDatabase.shared.bookForId(bookId).fullName)
         .toolbar {
